@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <h1>Inline Event</h1>
+    <button onclick="alert('Welcome to the world of js.')">Greeting</button>
+    <button ondblclick="alert('Welcome to the world of JS.')">Greeting again</button>
+    <button onmouseover="alert('Welcome agai to the world of JS.')">Greeting</button>
+
+    <h2>DOM Event handler</h2>
+    <button id="btn">Greeting</button>
+    <button id="btn1">Greeting again</button>
+
+    <h1>addEventListner Event handler</h1>
+    <button id="btn2">Greeting</button>
+    <button id="btn3">Greet again</button>
+
+    <script>// Event Handler
+        document.getElementById('btn').onclick = function(){
+            alert('Welcome to the journy of JavaScript.');
+        }
+        document.getElementById('btn1').onmouseover = function(){
+            alert('Welcome to the journy of JavaScript.');
+        }
+        
+        // add Event listner
+        document.getElementById('btn2').addEventListener('click', () => {
+            alert('Welcom to the journy of JavaScript.');
+        });
+        document.getElementById('btn3').addEventListener('mouseover', () => {
+            alert('Welcome to the journey of JavaScript.');
+        });
+        </script>
+
+</body>
+</html>

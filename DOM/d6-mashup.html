@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button disabled onclick="incrementDecrement(0)">-</button>
+    <input type="number" disabled value="0" min="0" max="10">
+    <button onclick="incrementDecrement(1)">+</button>
+
+    <script>
+        const inputTaker= document.getElementsByTagName('input')[0];
+        const btns=document.getElementsByTagName('button');
+        let count=0;
+
+        function incrementDecrement(flag) {
+            if (flag==0) {
+                inputTaker.value= --count;
+            } else {
+                inputTaker.value= ++count;
+            }
+
+            if (count==0) {
+                btns[0].disabled=true
+            } else {
+                btns[0].disabled=false;
+            }
+
+            if (count==10) {
+                btns[1].disabled=true;
+            } else {
+                btns[1].disabled=false;
+            }
+        }
+    </script>
+</body>
+</html>

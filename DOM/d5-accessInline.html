@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Inline CSS</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+            & button {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <button onclick="toggle(1)">Apply CSS </button>
+    <button onclick="toggle(0)">Remove CSS</button>
+    </div>
+    
+
+    <script>
+        var box = document.getElementById('box');
+        function toggle(flag) {
+            if (flag==1) {
+                box.style.backgroundColor = 'yellow';
+                box.style.transform = 'translate(50%, 50%) scaleZ(2)';
+                box.style.borderRadius = '10px'
+            } else {
+                box.style.backgroundColor = '';
+                box.style.transform = 'none';
+                
+            }
+        }
+    </script>
+</body>
+</html>

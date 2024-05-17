@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #e1eec3, #f05053);
+        }
+
+        .main {
+            width: 550px;
+            min-height: 600px;
+            background-color: white;
+            /* background-image: url(images/todoBackgroundImg.jpg); */
+            background-size: cover;
+            background-position: center;
+            margin: auto;
+            position: relative;
+            margin-top: 20px;
+            padding: 20px 10px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+
+            & input {
+                width: 350px;
+                height: 30px;
+                margin-left: 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                /* margin-left: 15px; */
+
+            }
+
+            & button {
+                margin-left: 10px;
+                width: 80px;
+                height: 30px;
+                cursor: pointer;
+                background-color: black;
+                color: white;
+                border-radius: 5px;
+            }
+
+            #listItems {
+                /* list-style: none; */
+                padding: 10px;
+
+                & li {
+                    background-color: black;
+                    padding: 5px;
+                    margin: 5px;
+                    margin-left: 20px;
+                    color: white;
+                    border-radius: 5px;
+                    position: relative;
+
+                }
+            }
+
+            #deleteButton {
+                width: 40px;
+                height: 20px;
+                cursor: pointer;
+                background-color: rgb(73, 73, 73);
+                color: white;
+                border-radius: 5px;
+                transform: translate(200%, 0%);
+                border: none;
+                position: absolute;
+                right: 100px;
+                top: 5pxpx;
+            }
+
+            #deleteButton:hover {
+                background-color: red;
+            }
+
+            .done {
+                text-decoration: line-through;
+                background-color: grey !important;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="color: white; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 10px;">
+        Stay Organized: To-Do List</h2>
+    <div class="main">
+        <input type="text" placeholder="Write something here" id="inputData">
+        <button onclick="addItem()" id="addButton">Add Task</button>
+        <ol type="1" id="listItems">
+            <!-- <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li> -->
+        </ol>
+    </div>
+
+    <script>
+        var inputData = document.getElementById('inputData'); //selecting the HTML element(input) by 
+        var listItems = document.getElementById('listItems');
+
+       function addItem() {
+            if (inputData.value != '') {
+                var li = document.createElement('li'); // create li automatically
+                li.innerText = inputData.value;//the entered value of the input field were added in the li of ul
+                //Dynamic Event Handler: for add 'done' Class
+                li.addEventListener(
+                    'click', //event
+                    function () { //callback function
+                        li.classList.toggle('done')
+                    }
+                );
+
+                li.addEventListener(
+                    'contextmenu',
+                    function (event) {
+                        event.preventDefault();//diabled right click
+                        li.remove(); // remove li items when on right click
+                    }
+                )
+
+                inputData.value = '';//for empty the input field after list item added
+                listItems.append(li);//Add items in the last of the list
+
+            }
+            var removeButton = document.createElement('button'); // create remove button
+            removeButton.innerText = 'X';
+            // removeButton.classList.add('deleteButton'); // add a class for styling
+            removeButton.id = 'deleteButton'; //Add ID to apply different CSS
+
+            //Static Event Binding
+            removeButton.onclick = function () {
+                li.remove(); // remove the corresponding li when the remove button is clicked
+            };
+
+            li.append(removeButton); // append the remove button to the li
+        }
+
+         //addItem() will be call when "Enter" is pressed
+         inputData.addEventListener(
+            'keyup',
+            function (e) {
+                if ( e.key=='Enter') {
+                    addItem();
+                }
+            }
+         );
+       
+    </script>
+
+</body>
+
+</html>

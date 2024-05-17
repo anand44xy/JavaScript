@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <button onclick="decrease()">-</button>
+    <h1 id="countBox">0</h1>
+    <button onclick="increase()">+</button>
+
+    <script>
+        // Getting reference to the element where count will be displayed
+        var number = document.getElementById("countBox");
+        var count = 0;
+
+
+        function decrease() {
+            count--;
+            number.innerText = count;    
+        }
+
+        function increase() {
+            count++;
+            number.innerText = count;
+        }
+    </script>
+</body>
+</html>

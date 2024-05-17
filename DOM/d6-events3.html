@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .childImg{
+            width: 250px;
+            height: 230px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <img src="images/img1.jpg" alt="" width="700px" height="400px" id="mainImg">
+        </div>
+    </div>
+   <img onmouseenter="getData(this)" src="images/img2.jpg" alt="" class="childImg">
+   <img onmouseenter="getData(this)" src="images/img3.jpg" alt="" class="childImg">
+   <img onmouseenter="getData(this)" src="images/img4.jpg" alt="" class="childImg">
+
+   
+   <script>
+    const mainImg = document.getElementById('mainImg');
+
+    function getData(element) {
+        mainImg.src = element.src;
+    }
+   </script>
+</body>
+</html>

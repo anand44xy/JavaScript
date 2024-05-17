@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap" rel="stylesheet">
+    <title>Greeting Card</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #fceabb, #f8b500);
+        }
+
+
+        .parent {
+            width: 801px;
+            height: 500px;
+            margin: auto;
+            margin-top: 30px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .box1 {
+            width: 400px;
+            height: inherit;
+            border-right: 1px solid rgb(7, 7, 7);
+            float: left;
+        }
+
+        .box2 {
+            width: 400px;
+            height: inherit;
+            border-left: 0px solid rgb(7, 7, 7);
+            float: left;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+
+            & h4,
+            p {
+                margin-left: 10px;
+            }
+        }
+
+        #to {
+            width: 200px;
+            height: 30px;
+            border: 1px solid gray;
+            margin: 10px;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        #message {
+            width: 300px;
+            height: 200px;
+            border: 1px solid gray;
+            margin: 10px;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        #from {
+            width: 200px;
+            height: 30px;
+            border: 1px solid gray;
+            margin: 10px;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: "Loved by the King", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #inputTaker{
+            transform: translate(55%, 10%);
+            margin-top: 10px;
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+
+    
+</head>
+
+<body>
+    <h1 style="transform: translate(40%, 0%);">Greeting Card ❤️</h1>
+    <div class="parent">
+        <div class="box1">
+            <input type="text" onkeyup="getData()" class="input" placeholder="To" id="to">
+            <textarea name="Message" onkeyup="getData()" class="input" id="message" placeholder="message" rows="7"></textarea>
+            <input type="text" onkeyup="getData()" class="input" placeholder="From" id="from">
+        </div>
+        <div class="box2">
+            <h4 class="output">To:</h4>
+            <p class="output">Message:</p>
+            <h4 class="output">From:</h4>
+        </div>     
+    </div>
+
+    <div id="inputTaker">
+        <input onchange="changeColor(this.value)" type="color" name="Background Color" id="">
+        <input onchange="changeTextColor(this.value)" type="color" name="Text Color" id="">
+        <button onclick="changeFontSize(1)">+</button>
+        <button onclick="changeFontSize(0)">-</button>
+    </div>
+    
+
+    <script>
+        const inputBox = document.getElementsByClassName('input');
+        const outputBox = document.getElementsByClassName('output');
+        const outputContainer = document.querySelector('.box2');
+        var font = 16;
+    
+        function getData() {
+            for (var i = 0; i < inputBox.length; i++) {
+                outputBox[i].innerText = inputBox[i].value;         
+            }
+        }
+    
+        function changeColor(code) {
+            outputContainer.style.backgroundColor = code;
+        }
+    
+        function changeTextColor(textCode) {
+            outputContainer.style.color = textCode;
+        }
+    
+        function changeFontSize(flag) {
+            if (flag == 1) {
+                if (font==20) return;
+                font++;
+            } else {
+                if (font==16) return;
+                font--;
+            }
+            outputContainer.style.fontSize = font + 'px';
+        }
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .container{
+            max-width: 1100px;
+            min-width: 400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;   
+        }
+
+        #parentTab{
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+
+        #parentTab li {
+            padding: 15px;
+            border: 1px solid #9e9c9c;
+            cursor: pointer;
+        }
+
+        .boxParent{
+            position: relative;
+        }
+
+        .box {
+            /* border: #9e9c9c 1px solid; */
+            margin-top: 30px;
+            margin-left: 30px;
+            padding: 20px;
+            min-height: 100px;
+            transition: 900ms;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            transform: scaleY(0);
+            font-size: 20px;
+        }
+
+        .active {
+            background-color: black;
+            color: white;
+        }
+
+        .open {
+            opacity: 1 !important;
+            visibility: visible;
+            transform: scaleY(1) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul id="parentTab">
+            <li data-index="0" class="active">Home</li>
+            <li data-index="1">About</li>
+            <li data-index="2">Courses</li>
+            <li data-index="3">Gallery</li>
+            <li data-index="4">Contact Us</li>
+        </ul>
+    </div>
+
+    <div class="boxParent">
+        <div class="box open">
+            <h4>AI Transforming Healthcare and Finance with Improved Efficiency and Personalization.</h4><br>
+            AI in healthcare enhances diagnostics, personalized treatments, and patient management through data analysis. In finance, AI optimizes trading, detects fraud, and offers personalized advice, boosting efficiency and satisfaction.
+        </div>
+        <div class="box">
+            <h4>Urgent Global Efforts Needed for Climate Change Mitigation.</h4> <br>
+            Addressing climate change requires reducing carbon emissions through sustainable practices, renewable energy, and conservation. Global cooperation and long-term commitment are essential to combat extreme weather, rising sea levels, and biodiversity loss.
+        </div>
+        <div class="box">
+            <h4>Future of Work Redefined by Technological Innovations.</h4><br>
+            Automation and AI are transforming jobs and work environments, enhancing productivity but posing challenges like job displacement. Investing in reskilling and promoting lifelong learning are crucial for adapting to this digital shift.
+        </div>
+        <div class="box">
+            <h4>Education Systems Must Equip Students for 21st Century Skills.</h4> <br>
+            Traditional education is outdated. Emphasizing critical thinking, creativity, and digital literacy, alongside mental health support, is vital. Integrating technology and project-based learning prepares students for future challenges.
+        </div>
+        <div class="box">
+            <h4>Global Economy Shifts Due to Technology and Geopolitics.</h4> <br>
+            Technological advances and geopolitical changes reshape trade, investment, and policies. Emerging markets gain prominence, challenging traditional leaders. Businesses must innovate and adapt to navigate this complex landscape.
+        </div>
+    </div>
+
+    <script>
+        let items = document.querySelectorAll('#parentTab li');
+        let boxes = document.querySelectorAll('.box');
+
+          // Add click event listener to each list item
+          for (const item of items) {
+            item.addEventListener('click', function(event) {
+                // Remove 'active' class from the currently active tab
+                let currentActive = document.querySelector('.active');
+                currentActive.classList.remove('active');
+
+                // Remove 'open' class from the currently open box
+                let currentOpen = document.querySelector('.open');
+                currentOpen.classList.remove('open');
+
+                // Get the index of the clicked tab
+                let index = event.target.dataset.index;
+
+                // Add 'open' class to the corresponding box
+                boxes[index].classList.add('open');
+
+                // Add 'active' class to the clicked tab
+                event.target.classList.add('active');
+                }
+            );
+        }
+    </script>
+</body>
+</html>

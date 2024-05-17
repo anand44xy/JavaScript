@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            font-family: sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            min-height: 400px;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid grey;
+        }
+        .box p{
+            display: none;
+            /* padding: 0px 10px; */
+            height: 0px;
+            transition: 400ms;
+            overflow: hidden;
+            background-color:rgb(226, 225, 225);
+        }
+        .box h3{
+           background-color: aqua;
+           /* padding-left: 10px; */
+           /* border: 1px solid aqua; */
+        }
+        
+        
+        .open{
+            display: block !important;
+            overflow: visible !important;
+            /* padding: 10px; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h3>The Fundamentals of Web Development</h3>
+            <p>Web development encompasses the creation and maintenance of websites. It involves coding, design, and
+                accordion-content management. Basic skills include HTML, CSS, and JavaScript, which structure and style
+                web pages and add interactivity.</p>
+        </div>
+        <div class="box">
+            <h3>Front-End and Back-End Development</h3>
+            <p>Front-end development focuses on the user interface, ensuring an engaging experience. Back-end
+                development involves server-side logic, database management, and application functionality. Both roles
+                are crucial for a fully functional website.</p>
+        </div>
+        <div class="box">
+            <h3>The Importance of Responsive Design</h3>
+            <p> Responsive design ensures websites work well on various devices, from desktops to smartphones. It
+                enhances user experience and accessibility, which are vital for reaching a broader audience and
+                maintaining high user engagement. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
+                est, molestiae, error eius nemo maiores omnis quaerat culpa vel accusamus tempora perspiciatis
+                distinctio necessitatibus aspernatur praesentium optio eaque nesciunt, earum nostrum expedita facere
+                rerum. Unde culpa fuga quo deserunt ratione, recusandae nemo ipsum magnam distinctio eius error delectus
+                architecto suscipit?</p>
+        </div>
+    </div>
+
+    <script>
+        var headings = document.querySelectorAll('.box h3');
+        for (const heading of headings) {
+            heading.addEventListener(
+                'click',
+                function(event) {
+                    let currentOpen = document.querySelector('.open')
+                    if (currentOpen != null) {
+                        currentOpen.classList.remove('open');
+                    } 
+                    var nextP = event.target.nextElementSibling;
+                    nextP.classList.add('open');
+                    nextP.style.height = nextP.scrollHeight + 'px';
+                }
+            )
+        }
+    </script>
+</body>
+
+</html>

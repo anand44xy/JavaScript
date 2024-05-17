@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .thumbnail {
+            width: 220px;
+            height: 250px;
+        }
+
+        #mainDisplay {
+            width: 300px;
+            height: 350px;
+            margin: 10px;
+            background-image: url('images/img7.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="mainDisplay"></div>
+    </div>
+    <img onmouseenter="changeMainDisplay(this)" src="images/img1.jpg" alt="" class="thumbnail">
+    <img onmouseenter="changeMainDisplay(this)" src="images/img3.jpg" alt="" class="thumbnail">
+    <img onmouseenter="changeMainDisplay(this)" src="images/img4.jpg" alt="" class="thumbnail">
+    <img onmouseenter="changeMainDisplay(this)" src="images/img6.jpg" alt="" class="thumbnail">
+    <img onmouseenter="changeMainDisplay(this)" src="images/img7.jpg" alt="" class="thumbnail">
+
+
+    <script>
+        const mainDisplay = document.getElementById('mainDisplay');
+
+        function changeMainDisplay(element) {
+            mainDisplay.style.backgroundImage = `url(${element.src})`;
+        }
+    </script>
+</body>
+
+</html>

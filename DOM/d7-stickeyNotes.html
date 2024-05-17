@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stickey Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #fffc00, #ffffff);
+            min-height: 100vh;
+        }
+
+        #addBtn {
+            margin-left: auto;
+            margin-right: 30px;
+            display: block;
+            padding: 10px;
+            background-color: #0e0d0d;
+            color: white;
+            /* margin-top: 25px; */
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        #container {
+            width: 100%;
+            padding: 20px;
+            /* border: 1px solid red; */
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-around; */
+            gap: 30px;
+            min-height: 500px;
+        }
+
+        .box {
+            width: 50%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 350px;
+            padding: 20px;
+            border: none;
+            font-size: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border: none;
+        }
+
+        .tray {
+            width: 100%;
+            height: 10%;
+            background-color: #8f8e8e;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+            & .deleteBtn {
+                background-color: transparent;
+                padding: 10px;
+                margin: 10px;
+                text-align: center;
+                color: white;
+                height: 10px;
+                border: 1px solid white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+
+            & :hover {
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="addBtn">Add</button>
+    <div id="container">
+        <!-- <div class="box1">
+            <div class="tray">
+                <button class="deleteBtn">Delete</button>
+            </div>
+            <textarea name="" id=""></textarea>
+        </div> -->
+    </div>
+
+
+    <script>
+        var container = document.getElementById('container');
+        var addBtn = document.getElementById('addBtn');
+
+        addBtn.addEventListener(
+            'click',
+            function () {
+                var box = document.createElement('div');
+                box.classList.add('add');
+                box.innerHTML = ` <div class="tray">
+                                  <button class="deleteBtn">Delete</button>
+                                  </div>
+                                  <textarea name="" id=""></textarea>`
+                container.append(box);
+
+                // remove box
+                var Delete = box.children[0].children[0];
+                Delete.addEventListener(
+                    'click',
+                    function () {
+                        box.remove();
+                        // box.parentNode.parentNode.remove();
+                    }
+                )
+            }
+        );
+
+        // Use 'Ctrl+V' to add a note
+        document.addEventListener(
+            'keydown',
+            function (event) {
+                if (event.ctrlKey  && event.code === 'KeyV') { 
+                event.preventDefault(); // Prevent the default paste behavior
+                addBtn.click(); // Programmatically click the add button
+            }
+            }
+        );
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- <body oncontextmenu="return false;"> --><!-- by this method we disable right click -->
+<body>
+    <!-- <input type="text" id="input" onkeydown="getData()"><br><br> -->
+    <!-- <input type="text" id="input" onkeypress="getData()"><br><br> -->
+    <input type="text" id="input" onkeyup="getData()"><br><br>
+    <!-- <button onclick="getData()">Click(onclick) </button> -->
+    <!-- <button ondblclick="getData()">Click(ondblclick) </button> -->
+    <!-- <button oncontextmenu="return getData()">Click(Right click Disabled) </button> -->
+    <h3></h3>
+
+    <script>
+        var inputBox = document.getElementById("input");
+        var h3 = document.getElementsByTagName("h3");
+
+        function getData() { 
+            // Set the text content of the h3 element to the value entered in the input field
+            h3[0].innerText = inputBox.value;
+            // Clear the input field after displaying its value
+            // inputBox.value = ''; 
+            return false;
+        }
+    </script>
+</body>
+</html>

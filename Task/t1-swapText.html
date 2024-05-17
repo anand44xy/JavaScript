@@ -1,0 +1,91 @@
+<!-- Task Title: Text Box Swapping Exercise
+
+Task Description:
+You are tasked with creating a simple web application that allows users to swap text content between three text boxes with the click of a button. The application should have three text boxes initially filled with content, and two buttons labeled "Swap 1" and "Swap 2".-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-01</title>
+
+    <style>
+      body{ background: linear-gradient(to right, #fbd3e9, #bb377d);}
+      .parent {
+        display: flex;
+        border: 2px solid black;
+        margin: auto ;
+        width: 650px;
+        height: 300px;
+        padding: 5px;
+
+        & div {
+          border: 1px solid gray;
+          width: 200px;
+          margin: 8px;
+        }
+
+        & #box1,
+        & #box2,
+        & #box3 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: rgb(255, 253, 253);
+          font-size: 50px;
+          font-weight: 600px;
+        }
+      }
+
+      .btn-container{
+        display: flex;
+        gap: 15%;
+        transform: translate(40%, 20px);
+      }
+      .btn {
+        border: none;
+        width: 70px;
+        height: 50px;
+        background-color: rgb(15, 15, 15);
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="parent">
+      <div id="box1">5</div>
+      <div id="box2"></div>
+      <div id="box3"></div>
+    </div>
+
+    <div class="btn-container">
+      <button onclick="swap1()" class="btn"><h2>></h2></button>
+      <button onclick="swap2()" class="btn"><h2>></h2></button>
+    </div>
+
+
+    <script>
+        var box1=document.getElementById('box1');
+        var box2=document.getElementById('box2');
+        var box3=document.getElementById('box3');
+
+        function swap1() {
+        if (box1.innerText !== '') {
+            box2.innerText = box1.innerText;
+            box1.innerText = '';
+        }
+    }
+
+    function swap2() {
+        if (box2.innerText !== '') {
+            box3.innerText = box2.innerText;
+            box2.innerText = '';
+        }
+    }
+    </script>
+  </body>
+</html>

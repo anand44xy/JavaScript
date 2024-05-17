@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Example</title>
+    <style>
+        #accordionContainer {
+            font-family: sans-serif;
+            width: 500px;   
+            /* border: 1px solid rgb(206, 203, 203); */
+            margin: auto;
+            /* height: 500px; */
+            padding: 20px;
+        }
+
+        .accordion-title {
+            background-color: rgb(25, 25, 192);
+            color: rgb(252, 249, 249);
+            max-width: 500px;
+            text-align: start;
+            font-size: 16px;
+            transition: background 500ms;
+            cursor: pointer;
+            padding: 5px;
+            margin: 10px 0px;
+
+        }
+
+        .accordion-title:hover {
+            background-color: rgb(34, 34, 34);
+            color: rgb(250, 247, 247);
+        }
+
+
+        .accordion-content {
+            margin-top: -10px;
+            background-color: rgb(240, 236, 236);
+            padding: 10px;
+            display: none;
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="accordionContainer">
+        <div class="accordion-item">
+            <div class="accordion-title">
+                The Fundamentals of Web Development
+            </div>
+            <div class="accordion-content">
+                Web development encompasses the creation and maintenance of websites. It involves coding, design, and
+                accordion-content management. Basic skills include HTML, CSS, and JavaScript, which structure and style
+                web pages and add interactivity.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-title btns">
+                Front-End and Back-End Development
+            </div>
+            <div class="accordion-content">
+                Front-end development focuses on the user interface, ensuring an engaging experience. Back-end
+                development involves server-side logic, database management, and application functionality. Both roles
+                are crucial for a fully functional website.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-title btns">
+                The Importance of Responsive Design
+            </div>
+            <div class="accordion-content">
+                Responsive design ensures websites work well on various devices, from desktops to smartphones. It
+                enhances user experience and accessibility, which are vital for reaching a broader audience and
+                maintaining high user engagement. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est, molestiae, error eius nemo maiores omnis quaerat culpa vel accusamus tempora perspiciatis distinctio necessitatibus aspernatur praesentium optio eaque nesciunt, earum nostrum expedita facere rerum. Unde culpa fuga quo deserunt ratione, recusandae nemo ipsum magnam distinctio eius error delectus architecto suscipit?
+            </div>
+        </div>
+
+
+        <script>
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(function (item) {
+                const title = item.querySelector('.accordion-title');
+                const content = item.querySelector('.accordion-content');
+
+                title.addEventListener(
+                    'click',
+                    function () {
+                        for (var i = 0; i < accordionItems.length; i++) {
+                            //check that is it current item or not if is it then add or remove 'active' class
+                            if (accordionItems[i]!= item) {
+                                accordionItems[i].classList.remove('active');
+                                item.target.classList.remove()
+                            } else {
+                                item.classList.toggle('active');//add or remove '.active' class by toggle
+                                item.target.classList.add()
+                            }                            
+                        }                     
+                    }
+                )
+            });
+        </script>
+    </div>
+</body>
+
+</html>
