@@ -595,3 +595,22 @@
 // months.slice(1,1, 'March');
 
 // console.log(months)
+
+// const milliSec = new Date().getTime();
+// console.log(milliSec);
+// const dateFromSec = new Date(milliSec);
+// console.log(dateFromSec);
+// const currDate = new Date();
+// console.log(currDate);
+// const hour = currDate.getDate();
+// console.log(hour);
+
+
+//! .split() : A string can be converted to an array.
+let text = "Hello";
+const myArr = text.split("");
+
+// text = "";
+for (let i = 0; i < myArr.length; i++) {
+  console.log(myArr[i]);
+}

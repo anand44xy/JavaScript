@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Events</title>
+</head>
+
+<body>
+    <h2>JavaScript Timing</h2>
+
+    <p>Click "Try it". Wait 1 seconds, and the page will alert "Hello Techies !".</p>
+    <p>Click "Stop" to prevent the first function to execute.</p>
+    <p>(You must click "Stop" before the 1 seconds are up.)</p>
+
+    <button onclick="myEvent = setTimeout(setTimoutfucn, 1000)">Try it</button>
+    <button onclick="clearTimeout(myEvent)"> Stop it</button>
+
+    <script>
+        function setTimoutfucn() {
+            alert('Hello Techies !');
+        }
+    </script>
+</body>
+
+</html>

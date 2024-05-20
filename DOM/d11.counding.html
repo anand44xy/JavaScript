@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Function</title>
+</head>
+
+<body>
+    <h1 id="dashboard">0</h1>
+    <button id="startBtn">Start</button>
+    <button disabled="true" id="stopBtn">Stop</button>
+    <button disabled="true" id="resetBtn">Reset</button>
+
+    <script>
+        const dashboard = document.querySelector('#dashboard');
+        const startBtn = document.querySelector('#startBtn');
+        const stopBtn = document.querySelector('#stopBtn');
+        const resetBtn = document.querySelector('#resetBtn');
+        let count = 0;
+        let intervalHandler;
+        //Start Button
+        startBtn.addEventListener(
+            'click',
+            function () {
+                intervalHandler = setInterval(
+                    function () {
+                        count++;
+                        dashboard.innerText = count;
+                    }, 1000);
+                    stopBtn.disabled = false;
+                    startBtn.disabled = false;
+                    startBtn.disabled = true;
+                    resetBtn.disabled = false;
+            }
+        )
+
+        //Stop Button
+        stopBtn.addEventListener(
+            'click',
+            function() {
+                clearInterval(intervalHandler);
+                stopBtn.disabled = true;
+                startBtn.disabled = false;
+            }
+        )
+
+        // Reset Button
+        resetBtn.addEventListener(
+            'click',
+            function() {
+                stopBtn.click();
+                count = 0;
+                // resetBtn.disabled = true;
+                dashboard.innerText = count;
+            }
+        )
+
+    </script>
+</body>
+
+</html>
